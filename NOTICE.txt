@@ -1,0 +1,9 @@
+Web Screensaver Customizer — independent adaptation of the Omarchy screensaver.
+Screensaver adaptation from https://github.com/omacom/omarchy-site
+Imported site commit: 0cc3001b9dfe8cce78bc371ead037f55b49ebf9c
+Imported on 2026-10-14.
+Original effects: TerminalTextEffects by ChrisBuilds.
+Rust effect engine: ttfx by 37signals / omacom.
+Text glyphs: Delta Corps Priest 1 by CoSMiC cHiLD, as embedded in Omarchy.
+UI typeface: Inter by Rasmus Andersson and contributors.
+See LICENSE, THIRD_PARTY_NOTICES.md and licenses/ for applicable terms.

@@ -1,0 +1,16 @@
+InterVariable.woff2 and InterVariable-Italic.woff2:
+Inter, by Rasmus Andersson and contributors.
+Source: https://github.com/rsms/inter
+SIL Open Font License 1.1; see ../../licenses/Inter-OFL.txt.
+Font files are unmodified.
+
+Omarchy-Delta-Corps-Priest-1.flf:
+Original font author: CoSMiC cHiLD.
+FIGFont created with patorjk.com's FIGFont Editor.
+A-Z glyphs and spacing logic sourced from Omarchy's bin/omarchy-ascii.
+Omarchy copyright: David Heinemeier Hansson.
+Source: https://github.com/omacom/omarchy/blob/quattro/bin/omarchy-ascii
+Omarchy MIT license: ../../licenses/Omarchy-MIT.txt.
+
+Digits 0-9 are a local extension and are not official Omarchy glyphs.
+Local contributions: MIT; see ../../LICENSE and ../../THIRD_PARTY_NOTICES.md.

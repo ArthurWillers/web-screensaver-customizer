@@ -1,0 +1,78 @@
+html.screensaver {
+  background: #000;
+  color-scheme: dark;
+  cursor: auto;
+  height: 100%;
+  overflow: hidden;
+}
+
+html.screensaver body {
+  background: #000;
+  color: #fff;
+  cursor: auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  user-select: none;
+}
+
+.screensaver__title {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.screensaver__canvas {
+  background: #000;
+  display: none;
+  height: 100%;
+  inset: 0;
+  position: fixed;
+  touch-action: none;
+  width: 100%;
+}
+
+.screensaver__art {
+  font-family: ui-monospace, monospace;
+  align-content: center;
+  color: var(--color-green, #9ece6a);
+  display: grid;
+  font-size: clamp(0.35rem, 1.1vw, 1rem);
+  height: 100%;
+  inset: 0;
+  justify-content: center;
+  letter-spacing: -0.0425em;
+  line-height: 1.09375;
+  margin: 0;
+  place-items: center;
+  position: fixed;
+  white-space: pre;
+  width: 100%;
+}
+
+html.screensaver.screensaver--rendered .screensaver__canvas {
+  display: block;
+}
+
+html.screensaver.screensaver--rendered .screensaver__art {
+  font-family: ui-monospace, monospace;
+  display: none;
+}
+
+html.screensaver--fullscreen.screensaver--animated .screensaver__canvas {
+  cursor: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.screensaver,
+  html.screensaver body,
+  .screensaver__canvas {
+    cursor: auto;
+  }
+}

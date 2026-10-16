@@ -1,0 +1,201 @@
+/* Original customizer interface: MIT; see LICENSE. */
+[hidden] { display: none !important; }
+
+.customize-toggle,
+.customize-panel {
+  color: #d8d8dc;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+}
+
+.customize-toggle {
+  background: #08090ce6;
+  border: 1px solid #383b42;
+  cursor: pointer;
+  padding: 10px 14px;
+  position: fixed;
+  right: 18px;
+  top: 18px;
+  z-index: 10;
+}
+
+.customize-toggle:hover,
+.customize-toggle:focus-visible {
+  border-color: #9ece6a;
+  color: #9ece6a;
+  outline: 1px solid #9ece6a;
+}
+
+.customize-panel:not([hidden]) {
+  background: #090a0df5;
+  border: 1px solid #383b42;
+  box-shadow: 0 14px 60px #000c;
+  cursor: auto;
+  display: grid;
+  gap: 10px;
+  max-height: calc(100dvh - 82px);
+  overflow: auto;
+  padding: 16px;
+  position: fixed;
+  right: 18px;
+  top: 64px;
+  width: min(360px, calc(100vw - 36px));
+  z-index: 20;
+}
+
+.panel-heading,
+.settings-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel-heading {
+  border-bottom: 1px solid #30323a;
+  color: #f0f0f2;
+  padding-bottom: 10px;
+}
+
+.customize-panel label {
+  color: #a8aab1;
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.customize-panel output {
+  color: #e3e4e7;
+  float: right;
+  letter-spacing: normal;
+}
+
+.customize-panel input:not([type]),
+.customize-panel select {
+  background: #050608;
+  border: 1px solid #3a3c44;
+  color: #f0f0f2;
+  font: inherit;
+  min-height: 40px;
+  padding: 8px 10px;
+  user-select: text;
+  width: 100%;
+}
+
+#custom-text { text-transform: uppercase; }
+
+.customize-panel input:focus-visible,
+.customize-panel select:focus-visible {
+  border-color: #9ece6a;
+  outline: 1px solid #9ece6a;
+}
+
+.customize-panel input[aria-invalid='true'] { border-color: #e9a09a; }
+.customize-panel :disabled { opacity: 0.5; cursor: not-allowed; }
+
+.settings-row { align-items: end; gap: 14px; }
+.settings-row > div { flex: 1; min-width: 0; }
+.settings-row input[type='range'] {
+  accent-color: #9ece6a;
+  cursor: pointer;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.close-panel {
+  background: transparent;
+  border: 0;
+  color: #aaa;
+  cursor: pointer;
+  font: 22px/1 'Inter', sans-serif;
+  min-height: 28px;
+  min-width: 28px;
+}
+
+.close-panel:focus-visible { outline: 1px solid #9ece6a; }
+
+.apply-customization {
+  background: #9ece6a;
+  border: 1px solid #9ece6a;
+  color: #10130d;
+  cursor: pointer;
+  font: inherit;
+  padding: 11px;
+}
+
+.apply-customization:not(:disabled):hover,
+.apply-customization:focus-visible {
+  background: #b2dc8b;
+  outline: 1px solid #b2dc8b;
+}
+
+.help { color: #9a9da6; font-size: 11px; line-height: 1.6; }
+.text-validation { color: #e9a09a; font-size: 11px; line-height: 1.5; }
+
+.customize-error {
+  background: #111;
+  border: 1px solid #383b42;
+  bottom: 64px;
+  color: #c5c6ca;
+  display: none;
+  font: 11px/1.5 'Inter', system-ui, sans-serif;
+  left: 50%;
+  max-width: calc(100vw - 24px);
+  padding: 9px 12px;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 30;
+}
+.customize-error.visible { display: block; }
+
+.screensaver-shortcuts {
+  align-items: center;
+  background: #08090ce6;
+  border: 1px solid #383b42;
+  bottom: 16px;
+  color: #a7a9b1;
+  display: flex;
+  flex-wrap: wrap;
+  font: 12px/1.8 'Inter', system-ui, sans-serif;
+  gap: 8px 16px;
+  justify-content: center;
+  left: 50%;
+  max-width: calc(100vw - 24px);
+  padding: 8px 12px;
+  position: fixed;
+  transform: translateX(-50%);
+  width: max-content;
+  z-index: 10;
+}
+
+.screensaver-shortcuts > span { white-space: nowrap; }
+.screensaver-shortcuts kbd {
+  border: 1px solid #4b4e57;
+  color: #e4e5e9;
+  margin-right: 4px;
+  padding: 2px 4px;
+}
+
+html.screensaver--fullscreen .customize-toggle,
+html.screensaver--fullscreen .screensaver-shortcuts { display: none; }
+
+html.screensaver--fullscreen.screensaver--show-shortcuts .screensaver-shortcuts { display: flex; }
+
+html.screensaver--fullscreen .customize-panel:not([hidden]) {
+  max-height: calc(100dvh - 36px);
+  top: 18px;
+}
+
+html.screensaver--customizing .screensaver__canvas,
+html.screensaver--pointer-visible .screensaver__canvas { cursor: auto; }
+
+@media (max-width: 520px) {
+  .customize-toggle { right: 12px; top: 12px; }
+  .customize-panel:not([hidden]) {
+    right: 12px;
+    top: 60px;
+    width: calc(100vw - 24px);
+  }
+  .screensaver-shortcuts { bottom: 12px; gap: 4px 10px; }
+}
