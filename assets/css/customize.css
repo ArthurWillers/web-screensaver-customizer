@@ -177,8 +177,29 @@
   padding: 2px 4px;
 }
 
+.repository-link {
+  background: #08090ce6;
+  border: 1px solid #383b42;
+  bottom: 16px;
+  color: #a7a9b1;
+  font: 12px/1.8 'Inter', system-ui, sans-serif;
+  left: 18px;
+  padding: 8px 12px;
+  position: fixed;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.repository-link:hover,
+.repository-link:focus-visible {
+  border-color: #9ece6a;
+  color: #9ece6a;
+  outline: 1px solid #9ece6a;
+}
+
 html.screensaver--fullscreen .customize-toggle,
-html.screensaver--fullscreen .screensaver-shortcuts { display: none; }
+html.screensaver--fullscreen .screensaver-shortcuts,
+html.screensaver--fullscreen .repository-link { display: none; }
 
 html.screensaver--fullscreen.screensaver--show-shortcuts .screensaver-shortcuts { display: flex; }
 
@@ -198,4 +219,5 @@ html.screensaver--pointer-visible .screensaver__canvas { cursor: auto; }
     width: calc(100vw - 24px);
   }
   .screensaver-shortcuts { bottom: 12px; gap: 4px 10px; }
+  .repository-link { bottom: 12px; left: 12px; }
 }
