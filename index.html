@@ -1,12 +1,12 @@
 <!doctype html>
 
-<html lang="pt-BR" class="screensaver">
+<html lang="en" class="screensaver">
   <head>
     <title>Web Screensaver Customizer</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
-    <meta name="description" content="Digite um texto e personalize seu screensaver na web.">
+    <meta name="description" content="Enter text and customize your web screensaver.">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="data:,">
 
@@ -21,34 +21,34 @@
   <body tabindex="-1">
     <h1 class="screensaver__title">Web Screensaver Customizer</h1>
     <canvas class="screensaver__canvas" id="screensaver" aria-hidden="true"></canvas>
-    <button class="customize-toggle" id="customize-toggle" type="button" aria-controls="customize-panel" aria-expanded="false" aria-keyshortcuts="C">Personalizar</button>
+    <button class="customize-toggle" id="customize-toggle" type="button" aria-controls="customize-panel" aria-expanded="false" aria-keyshortcuts="C">Customize</button>
     <form class="customize-panel" id="customize-panel" aria-labelledby="panel-title" hidden>
       <div class="panel-heading">
-        <strong id="panel-title">Seu screensaver</strong>
-        <button class="close-panel" id="close-panel" type="button" aria-label="Fechar personalização">×</button>
+        <strong id="panel-title">Your screensaver</strong>
+        <button class="close-panel" id="close-panel" type="button" aria-label="Close customization">×</button>
       </div>
-      <label for="custom-text">Texto</label>
+      <label for="custom-text">Text</label>
       <input id="custom-text" name="text" maxlength="24" value="OMARCHY" autocomplete="off" spellcheck="false" required aria-describedby="text-help text-validation">
-      <p class="help" id="text-help">Até 24 caracteres: A–Z, 0–9 e espaços. Acentos são convertidos; outros símbolos são ignorados.</p>
+      <p class="help" id="text-help">Up to 24 characters: A–Z, 0–9, and spaces. Accented letters are converted; other symbols are ignored.</p>
       <p class="text-validation" id="text-validation" aria-live="polite" hidden></p>
       <div class="settings-row">
         <div>
-          <label for="custom-effect">Efeito</label>
-          <select id="custom-effect" name="effect"><option value="random">Aleatório</option></select>
+          <label for="custom-effect">Effect</label>
+          <select id="custom-effect" name="effect"><option value="random">Random</option></select>
         </div>
         <div>
-          <label for="custom-size">Tamanho <output id="custom-size-value">11 px</output></label>
+          <label for="custom-size">Size <output id="custom-size-value">11 px</output></label>
           <input id="custom-size" name="size" type="range" min="6" max="16" value="11">
         </div>
       </div>
-      <p class="help">O tamanho se ajusta para o texto caber na tela.</p>
-      <button class="apply-customization" id="apply-customization" type="submit" disabled>Aplicar</button>
+      <p class="help">The size adjusts to fit the text on screen.</p>
+      <button class="apply-customization" id="apply-customization" type="submit" disabled>Apply</button>
     </form>
     <p class="customize-error" id="customize-error" role="status" aria-live="polite"></p>
-    <aside class="screensaver-shortcuts" aria-label="Atalhos de teclado">
-      <span><kbd>C</kbd> personalizar</span>
-      <span><kbd>F</kbd> tela cheia</span>
-      <span><kbd>Esc</kbd> fechar painel</span>
+    <aside class="screensaver-shortcuts" aria-label="Keyboard shortcuts">
+      <span><kbd>C</kbd> customize</span>
+      <span><kbd>F</kbd> fullscreen</span>
+      <span><kbd>Esc</kbd> close panel</span>
     </aside>
     <pre class="screensaver__art" id="screensaver-art">
                  ▄▄▄

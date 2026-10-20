@@ -1,78 +1,78 @@
 # Web Screensaver Customizer
 
-Um screensaver web personalizável, baseado no [screensaver do Omarchy](https://omarchy.org/screensaver/) e adaptado do repositório [omacom/omarchy-site](https://github.com/omacom/omarchy-site). Digite um texto, escolha um efeito e ajuste o tamanho diretamente no navegador.
+A customizable web screensaver based on the [Omarchy screensaver](https://omarchy.org/screensaver/) and adapted from the [omacom/omarchy-site](https://github.com/omacom/omarchy-site) repository. Enter text, choose an effect, and adjust its size right in your browser.
 
-Este projeto deriva do trabalho do Omarchy e de seus colaboradores. Não é um produto oficial do Omarchy e não implica endosso dos autores originais.
+This project builds on work by Omarchy and its contributors. It is not an official Omarchy product and does not imply endorsement by the original authors.
 
-## Executar localmente
+## Run locally
 
-É um site estático: não exige npm, compilação ou instalação do Omarchy.
+This is a static site. It does not require npm, a build step, or an Omarchy installation.
 
-Na pasta deste projeto, execute:
+From the project directory, run:
 
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Abra [http://localhost:8000](http://localhost:8000). Para encerrar o servidor, pressione Ctrl+C no terminal.
+Open [http://localhost:8000](http://localhost:8000). Press Ctrl+C in the terminal to stop the server.
 
-Use HTTP para carregar os módulos JavaScript, as fontes e o WebAssembly. Abrir `index.html` por `file://` não é suficiente para o editor animado.
+Use HTTP to load the JavaScript modules, fonts, and WebAssembly. Opening `index.html` with `file://` is not sufficient for the animated editor.
 
-## Personalização
+## Customize
 
-Clique em **Personalizar**, digite até 24 caracteres e ajuste o efeito e o tamanho. As alterações aparecem no preview; **Aplicar** confirma a visualização e fecha o painel.
+Click **Customize**, enter up to 24 characters, and adjust the effect and size. Changes appear in the preview; **Apply** confirms the preview and closes the panel.
 
-- Letras A–Z, números 0–9 e espaços são aceitos.
-- Letras minúsculas viram maiúsculas e acentos são convertidos, por exemplo `ação` → `ACAO`.
-- Outros símbolos são ignorados. Uma entrada sem letras ou números mostra uma mensagem e preserva a arte anterior.
-- O tamanho se ajusta à área disponível para evitar cortar o texto.
-- **Aleatório** alterna entre os efeitos disponíveis; um efeito escolhido continua se repetindo.
-- Preferência de movimento reduzido do sistema é respeitada: a arte fica estática, e o texto e o tamanho continuam editáveis.
+- Letters A–Z, numbers 0–9, and spaces are accepted.
+- Lowercase letters are converted to uppercase and accents are removed, for example, `café` → `CAFE`.
+- Other symbols are ignored. If the input contains no letters or numbers, a message appears and the previous artwork is preserved.
+- The size adjusts to the available area to keep the text on screen.
+- **Random** cycles through the available effects; a selected effect repeats.
+- The system's reduced-motion preference is respected: the artwork stays static, while the text and size remain editable.
 
-| Tecla | Ação |
+| Key | Action |
 | --- | --- |
-| C | Abrir ou fechar a personalização |
-| F | Entrar ou sair da tela cheia |
-| Esc | Fechar o painel; com o painel fechado, o navegador pode sair da tela cheia |
+| C | Open or close customization |
+| F | Enter or exit fullscreen |
+| Esc | Close the panel; when the panel is closed, the browser may exit fullscreen |
 
-As teclas C e F não interrompem a digitação dentro de campos de edição.
+The C and F keys do not interrupt typing in editable fields.
 
-Os atalhos ficam visíveis na abertura normal. Em tela cheia, o botão e a faixa de atalhos são ocultados; ao entrar com F, a faixa aparece por 3,5 segundos. C abre o painel quando necessário. O cursor reaparece ao mover o mouse e continua visível enquanto o painel está aberto.
+Shortcuts are visible during normal startup. In fullscreen, the button and shortcut bar are hidden; when entering fullscreen with F, the shortcut bar appears for 3.5 seconds. Press C to open the panel when needed. The pointer reappears when you move the mouse and stays visible while the panel is open.
 
-## Como o texto é gerado
+## How the text is generated
 
-As letras vêm da FIGfont **Delta Corps Priest 1**, embutida no comando [`omarchy ascii`](https://github.com/omacom/omarchy/blob/quattro/bin/omarchy-ascii). O texto é composto como arte de caracteres, usando o espaçamento do gerador do Omarchy, e entregue ao motor `ttfx`.
+The letters come from the **Delta Corps Priest 1** FIGfont, bundled with the [`omarchy ascii`](https://github.com/omacom/omarchy/blob/quattro/bin/omarchy-ascii) command. Text is composed as character art using the spacing from Omarchy's generator, then passed to the `ttfx` engine.
 
-A fonte original não inclui números. Os glifos **0–9** desta adaptação foram desenhados para acompanhar o estilo de blocos; não são glifos oficiais do Omarchy.
+The original font does not include numbers. The **0–9** glyphs in this adaptation were designed to match the block style; they are not official Omarchy glyphs.
 
-O canvas desenha os blocos geometricamente, preservando as formas durante o redimensionamento. A **Inter**, de Rasmus Andersson e colaboradores, é usada na interface e nos símbolos dos efeitos. Os arquivos da fonte estão incluídos no projeto, sem CDN durante o uso.
+The canvas draws the blocks geometrically, preserving their shapes when resized. **Inter**, by Rasmus Andersson and contributors, is used for the interface and effect symbols. The font files are included in the project, with no CDN required at runtime.
 
-## Origem e créditos
+## Origins and credits
 
-- **Omarchy, David Heinemeier Hansson e colaboradores:** screensaver, identidade visual e gerador de texto. [Projeto Omarchy](https://github.com/omacom/omarchy).
-- **Omacom e colaboradores do site:** página original, apresentação, seleção de efeitos e integração com canvas/WebAssembly. [omarchy-site](https://github.com/omacom/omarchy-site).
-- **37signals / omacom:** `ttfx`, port para Rust do motor de efeitos. [ttfx](https://github.com/omacom/ttfx).
-- **ChrisBuilds:** criador de **TerminalTextEffects**, de onde vêm os efeitos e o desenho das animações. [TerminalTextEffects](https://github.com/ChrisBuilds/terminaltexteffects).
-- **CoSMiC cHiLD:** autor de **Delta Corps Priest 1**. A fonte original também registra o [FIGFont Editor de patorjk](https://patorjk.com/figfont-editor/).
-- **Rasmus Andersson e colaboradores:** fonte **Inter**. [Inter](https://github.com/rsms/inter).
+- **Omarchy, David Heinemeier Hansson, and contributors:** screensaver, visual identity, and text generator. [Omarchy project](https://github.com/omacom/omarchy).
+- **Omacom and site contributors:** original page, presentation, effect selection, and canvas/WebAssembly integration. [omarchy-site](https://github.com/omacom/omarchy-site).
+- **37signals / omacom:** `ttfx`, a Rust port of the effects engine. [ttfx](https://github.com/omacom/ttfx).
+- **ChrisBuilds:** creator of **TerminalTextEffects**, the source of the effects and animation rendering. [TerminalTextEffects](https://github.com/ChrisBuilds/terminaltexteffects).
+- **CoSMiC cHiLD:** author of **Delta Corps Priest 1**. The original font also credits [patorjk's FIGFont Editor](https://patorjk.com/figfont-editor/).
+- **Rasmus Andersson and contributors:** **Inter** font. [Inter](https://github.com/rsms/inter).
 
-A extração de `omarchy-site` foi feita em **14 de outubro de 2026**, a partir do commit [0cc3001b9dfe8cce78bc371ead037f55b49ebf9c](https://github.com/omacom/omarchy-site/tree/0cc3001b9dfe8cce78bc371ead037f55b49ebf9c). A origem de cada grupo de arquivos está em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+The `omarchy-site` snapshot was imported on **October 14, 2026**, from commit [0cc3001b9dfe8cce78bc371ead037f55b49ebf9c](https://github.com/omacom/omarchy-site/tree/0cc3001b9dfe8cce78bc371ead037f55b49ebf9c). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for the origins of each group of files.
 
-## Arquivos
+## Files
 
 ```text
-index.html                         Página e controles
-assets/css/                        Estilos e fontes
-assets/fonts/                      Inter e FIGfont com os glifos
-assets/js/modules/screensaver.js   Editor, atalhos e ciclo de animação
-assets/js/modules/omarchy-font.js  Conversão de texto em arte
+index.html                         Page and controls
+assets/css/                        Styles and fonts
+assets/fonts/                      Inter and FIGfont glyphs
+assets/js/modules/screensaver.js   Editor, shortcuts, and animation loop
+assets/js/modules/omarchy-font.js  Text-to-art conversion
 assets/js/modules/screensaver-picker.js
-assets/js/wte/                     Motor ttfx e desenho no canvas
-licenses/                         Licenças e avisos preservados
+assets/js/wte/                     ttfx engine and canvas rendering
+licenses/                          Preserved licenses and notices
 ```
 
-## Licença
+## License
 
-As contribuições originais deste personalizador e suas modificações são disponibilizadas sob a [licença MIT](LICENSE). Omarchy e ttfx preservam suas licenças MIT e os respectivos avisos de autoria. A Inter permanece sob **SIL Open Font License 1.1**.
+Original contributions to this customizer and its modifications are available under the [MIT license](LICENSE). Omarchy and ttfx retain their MIT licenses and respective copyright notices. Inter remains under the **SIL Open Font License 1.1**.
 
-A revisão importada de **omarchy-site não contém uma licença geral declarada**. A MIT deste projeto não concede uma nova licença para esses arquivos preservados. Consulte [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) e os textos em [licenses/](licenses/) para o escopo de cada componente.
+The imported **omarchy-site snapshot does not include a general license**. This project's MIT license does not grant a new license for those preserved files. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and the texts in [licenses/](licenses/) for the scope of each component.

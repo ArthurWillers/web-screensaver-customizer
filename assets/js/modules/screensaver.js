@@ -263,7 +263,7 @@ function ready() {
 
   function validateText() {
     const valid = normalizeOmarchyText(textInput.value).trim() !== '';
-    const message = valid ? '' : 'Digite ao menos uma letra ou número.';
+    const message = valid ? '' : 'Enter at least one letter or number.';
     textInput.setCustomValidity(message);
     textInput.setAttribute('aria-invalid', String(!valid));
     validation.textContent = message;
@@ -363,7 +363,7 @@ function ready() {
       paint(now);
       raf = requestAnimationFrame(tick);
     } catch {
-      useStaticRenderer('A animação parou. Você ainda pode personalizar o texto e o tamanho.');
+      useStaticRenderer('The animation stopped. You can still customize the text and size.');
     }
   }
 
@@ -390,7 +390,7 @@ function ready() {
         paintStatic(ctx, metrics, input);
       }
     } catch {
-      useStaticRenderer('A animação não carregou. O texto e o tamanho continuam disponíveis.');
+      useStaticRenderer('The animation could not be loaded. Text and size are still available.');
     }
   }
 
@@ -440,7 +440,7 @@ function ready() {
       void toggleFullscreen().then(() => {
         syncFullscreen();
         if (isFullscreen()) showShortcutInfo();
-      }).catch(() => showStatus('Este navegador não permitiu abrir a tela cheia.'));
+      }).catch(() => showStatus('This browser could not enter fullscreen mode.'));
     }
   });
 
@@ -475,7 +475,7 @@ function ready() {
     updateArtwork();
   }).catch(() => {
     textInput.disabled = true;
-    showStatus('Não foi possível carregar as letras. Recarregue a página para editar o texto.');
+    showStatus('The characters could not be loaded. Reload the page to edit the text.');
   });
 
   if (prefersReducedMotion()) {
@@ -501,7 +501,7 @@ function ready() {
       markAnimated();
       renderNow(nextEffect());
     })
-    .catch(() => useStaticRenderer('A animação não carregou. O texto e o tamanho continuam disponíveis.'));
+    .catch(() => useStaticRenderer('The animation could not be loaded. Text and size are still available.'));
 }
 
 ready();
